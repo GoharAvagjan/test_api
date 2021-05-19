@@ -2,6 +2,9 @@ const fetch = require('node-fetch');
 const http = require('http');
 const fs = require('fs');
 
+const myport = parseInt(process.env.PORT) || 8080;
+// const myport = 2021;
+
 http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
 
@@ -14,7 +17,7 @@ http.createServer(function (req, res) {
     // .then(data => res.end( '<a href="' +data[0]['flag']+ '"> ARMENIAN FLAG </a>') )
     .then(data => res.end( '<a href="' +data[0]['flag']+ '"> '+data[0]['flag']+' </a>') )
 
-}).listen(2021);
+}).listen(myport);
 
 /*
 fetch('https://restcountries.eu/rest/v2/name/Armenia', {
